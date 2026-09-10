@@ -15,7 +15,6 @@ Parse.initialize(PARSE_APP_ID, PARSE_JS_KEY);
 Parse.serverURL = PARSE_SERVER_URL;
 
 const app = express();
-app.set("trust proxy", true); // behind Back4app's TLS-terminating proxy: req.protocol becomes https
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -34,7 +33,8 @@ app.post("/shorten", async (req, res) => {
     const link = new Parse.Object("Link");
     link.set("url", String(req.body.url ?? ""));
     const saved = await link.save(); // beforeSave in the backend validates and assigns the code
-    const short = `${req.protocol}://${req.get("host")}/${saved.get("code")}`;
+    // The platform terminates TLS and does not forward the scheme, so req.protocol says "http". Assume https.
+    const short = `https://${req.get("host")}/${saved.get("code")}`;
     if (req.is("json")) return res.status(201).json({ code: saved.get("code"), short, url: saved.get("url") });
     res.send(page(`<p>Short link: <a href="${short}"><code>${short}</code></a></p><p><a href="/">Shorten another</a></p>`));
   } catch (err) {

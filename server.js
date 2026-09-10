@@ -15,6 +15,7 @@ Parse.initialize(PARSE_APP_ID, PARSE_JS_KEY);
 Parse.serverURL = PARSE_SERVER_URL;
 
 const app = express();
+app.set("trust proxy", true); // behind Back4app's TLS-terminating proxy: req.protocol becomes https
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

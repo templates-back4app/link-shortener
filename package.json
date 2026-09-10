@@ -1,0 +1,15 @@
+{
+  "name": "link-shortener",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A link shortener in a Docker container, storing links in a Back4app backend.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1",
+    "parse": "^8.6.0"
+  }
+}

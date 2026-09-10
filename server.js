@@ -38,6 +38,7 @@ app.post("/shorten", async (req, res) => {
     if (req.is("json")) return res.status(201).json({ code: saved.get("code"), short, url: saved.get("url") });
     res.send(page(`<p>Short link: <a href="${short}"><code>${short}</code></a></p><p><a href="/">Shorten another</a></p>`));
   } catch (err) {
+    console.error(`shorten failed: ${err.code ?? "-"} ${err.message}`); // shows up in Runtime Logs
     const status = err.code === Parse.Error.VALIDATION_ERROR ? 400 : 502;
     if (req.is("json")) return res.status(status).json({ code: err.code, error: err.message });
     res.status(status).send(page(`<p>${err.message}</p><p><a href="/">Try again</a></p>`));

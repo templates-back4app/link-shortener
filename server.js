@@ -26,7 +26,7 @@ const form = `<form method="post" action="/shorten"><input name="url" placeholde
 
 app.get("/", (req, res) => res.send(page(form)));
 
-app.get("/healthz", (req, res) => res.json({ ok: true }));
+app.get("/healthz", (req, res) => res.json({ ok: true, version: require("./package.json").version }));
 
 app.post("/shorten", async (req, res) => {
   try {

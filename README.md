@@ -1,5 +1,7 @@
 # link-shortener
 
+Source: https://github.com/templates-back4app/link-shortener
+
 A link shortener in a Docker container that stores its data in a Back4app backend — the companion project for the Back4app blog post on deploying a Node.js app from a Dockerfile with a database and auth, without managing servers.
 
 - `server.js` — the container: a page, `POST /shorten`, `GET /:code` redirect.

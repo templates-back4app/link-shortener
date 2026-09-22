@@ -4,7 +4,7 @@
 
 Measured on September 10, 2026, on Back4app Containers: Deploy click → first `200` in **42 s** (29 s of it the image build), redeploys in 14–32 s with zero failed requests during the swap. Every number in the article comes from this exact code.
 
-> Read the article: *How to Deploy a Node.js App From a Dockerfile — With a Database and Auth, No Servers to Manage* — link added at publication.
+> **Read the article:** [How to Deploy a Node.js App From a Dockerfile — With a Database and Auth, No Servers to Manage](https://www.back4app.com/blog/deploy-node-app-dockerfile-back4app)
 
 ## What it does
 

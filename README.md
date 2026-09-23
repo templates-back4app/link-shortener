@@ -1,10 +1,12 @@
 # link-shortener
 
+[![Deploy on Back4app](https://img.shields.io/badge/Deploy%20on-Back4app-1568B8?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEyIDJMMiA3djEwbDEwIDUgMTAtNVY3eiIvPjwvc3ZnPg==)](https://www.back4app.com/signup?utm_source=github&utm_medium=repo&utm_campaign=link-shortener)
+
 **A Node.js link shortener deployed from a Dockerfile, live with a database in 42 seconds and no server to run.** 42 lines of Express in a container, with the data, the URL validation and the short-code generation in a managed [Back4app](https://www.back4app.com/) backend. Nothing to provision, patch or back up.
 
 Measured on September 10, 2026, on Back4app Containers: Deploy click → first `200` in **42 s** (29 s of it the image build), redeploys in 14–32 s with zero failed requests during the swap. Every number in the article comes from this exact code.
 
-> **Read the article:** [How to Deploy a Node.js App With Docker and a Database, Without Managing a Server](https://www.back4app.com/blog/deploy-node-app-dockerfile-back4app)
+> **Read the article:** [How to Deploy a Node.js App With Docker and a Database, Without Managing a Server](https://www.back4app.com/blog/deploy-node-app-dockerfile-back4app?utm_source=github&utm_medium=repo&utm_campaign=link-shortener)
 
 ## What it does
 
@@ -36,7 +38,7 @@ Findings from the run: a wrong port is not an error (the platform logged *App is
 
 ## Deploy your own
 
-1. **Create a free account.** Sign up at [https://www.back4app.com/signup](https://www.back4app.com/signup). One account gives you both halves: **Build your Backend** (the database and rules) and **Containers** (where the Dockerfile runs).
+1. **Create a free account.** Sign up at [https://www.back4app.com/signup?utm_source=github&utm_medium=repo&utm_campaign=link-shortener](https://www.back4app.com/signup?utm_source=github&utm_medium=repo&utm_campaign=link-shortener). One account gives you both halves: **Build your Backend** (the database and rules) and **Containers** (where the Dockerfile runs).
 2. **Backend:** New App → Build your Backend. On Overview copy the App ID and the JavaScript key. **Cloud Code → main.js**: paste `cloud/main.js`, Deploy, then edit and deploy again (the first deploy on a fresh backend ships nothing); prove the hook with a request.
 3. **Container:** push this repo to GitHub, then **Containers → New App → Deploy from GitHub**. Set `PARSE_APP_ID` and `PARSE_JS_KEY` as environment variables and the health check to `/healthz`. Deploy.
 4. Verify: `./deploy-check.sh https://<your-app>.b4a.run`
@@ -53,7 +55,7 @@ node --env-file=.env server.js
 
 ## What the platform gives you
 
-Containers build the Dockerfile, run the image behind HTTPS on a public URL and redeploy on push. The backend is a managed Parse Server with a database, REST and GraphQL APIs, Cloud Code and a dashboard. Documentation: [https://www.back4app.com/docs-containers](https://www.back4app.com/docs-containers) · [https://www.back4app.com/docs](https://www.back4app.com/docs).
+Containers build the Dockerfile, run the image behind HTTPS on a public URL and redeploy on push. The backend is a managed Parse Server with a database, REST and GraphQL APIs, Cloud Code and a dashboard. Documentation: [https://www.back4app.com/docs-containers?utm_source=github&utm_medium=repo&utm_campaign=link-shortener](https://www.back4app.com/docs-containers?utm_source=github&utm_medium=repo&utm_campaign=link-shortener) · [https://www.back4app.com/docs?utm_source=github&utm_medium=repo&utm_campaign=link-shortener](https://www.back4app.com/docs?utm_source=github&utm_medium=repo&utm_campaign=link-shortener).
 
 ## License
 
